@@ -1,0 +1,143 @@
+.offcanvas-checkOut {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.offcanvas-checkOutButton {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.offcanvas-checkOutButton:hover {
+  background-color: #ecb365;
+}
+
+.offcanvasBackground {
+  background-color: #064663;
+}
+
+.offcanvasBackground div h5 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+h4 {
+  color: white;
+  font-weight: bolder;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.cart-title {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 44px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.carritoContenedor {
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 10px 22px;
+}
+.carritoContenedor_iconoCantidad {
+  display: flex;
+  gap: 10px;
+}
+.carritoContenedor_icono {
+  font-size: 23px;
+  color: white;
+  text-decoration: none;
+}
+.carritoContenedor_cantidad {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* CART */
+
+.cart-checkOut {
+  width: 50%;
+  max-width: 800px;
+  margin: 10% auto;
+  margin-top: 35px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #064663;
+}
+
+.cart-checkOutTotal {
+  color: white;
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.cart-checkOutTotalButton {
+  padding: 5px;
+  border: solid white;
+  color: white;
+  background-color: transparent;
+}
+
+.cart-checkOutTotalButton:hover {
+  background-color: #04293a;
+}
+
+.inhabilitado{
+  color: #b8b8b8;
+  border: groove #b8b8b8;
+}
+
+.inhabilitado:hover{
+  background-color: transparent;
+  cursor: initial;
+}
+
+.cart-form {
+  width: 80%;
+  max-width: 800px;
+  margin: 10% auto;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #064663;
+
+  border-top: solid #04293a;
+  border-bottom: solid #04293a;
+}
+
+.cart-form h5,
+label {
+  color: white;
+  font-weight: bolder;
+}
+
+.showClass {
+  display: block;
+}
+
+.hidenClass {
+  display: none;
+}
+
+.cart-display {
+  display: none;
+}

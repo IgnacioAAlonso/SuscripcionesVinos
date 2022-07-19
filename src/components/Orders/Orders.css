@@ -1,0 +1,32 @@
+.orderContainer {
+  width: 90%;
+  margin: 10% auto;
+  margin-top: 30px;
+  background-color: #064663;
+  padding: 10px;
+}
+.orderContainer__id {
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+.orderContainer__info {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.orderContainer__infoTitulo {
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.orderContainer__infoPro {
+  border-bottom: solid #04293a;
+}
+
+.orderContainer__infoTotal {
+  border: 1px solid #fff;
+  width: 200px;
+  padding: 10px;
+}

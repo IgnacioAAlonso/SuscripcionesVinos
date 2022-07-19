@@ -1,0 +1,248 @@
+.contenedor__cantidad {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cantidad__item {
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  text-align: center;
+  border: solid black;
+}
+
+.botones__item {
+  font-size: 10px;
+}
+
+.agregar__item {
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.agregar__item:hover {
+  background-color: #e2e2e2;
+}
+
+.stock__item {
+  margin-top: 10px;
+}
+
+.imagen_item {
+  object-fit: cover;
+  width: 110%;
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  position: relative;
+  left: -5%;
+  top: -0.2%;
+}
+
+.card_item {
+  margin: 6px;
+  background-color: #041c32;
+  /*
+  background-color: #150050;
+  */
+}
+
+.card_item--inhabilitado{
+  margin: 6px;
+  background-color: #041c32;
+  filter: grayscale(100%);
+}
+
+.card__bodyItem {
+  color: white;
+}
+
+/*-----------------Item Detail---------------------*/
+
+.contenedor__detalles {
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10% auto;
+  margin-top: 15px;
+}
+
+.contenedor__detalles-imagen {
+  width: 40%;
+  height: auto;
+  margin-right: 15%;
+}
+
+.contenedor__detalles-imagen-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contenedor__detalles-item {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.contenedor__detalles-item-titulo {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.contenedor__detalles-item-precio {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.contenedor__detalles-cantidad {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  height: 50px;
+  width: 35%;
+
+  border: solid 1px rgb(77, 77, 77);
+}
+
+.contenedor__detalles-cantidad-actual {
+  margin-top: 5%;
+}
+
+.contenedor__detalles-cantidad-resta {
+  border-radius: 20px;
+  width: 38px;
+  height: 38px;
+  align-self: center;
+  background-color: black;
+  color: white;
+}
+
+.contenedor__detalles-cantidad-suma {
+  align-self: center;
+  border-radius: 20px;
+  width: 38px;
+  height: 38px;
+  background-color: black;
+  color: white;
+}
+
+.contenedor__detalles-cantidad-resta:hover {
+  background-color: #2e2e2e;
+}
+
+.contenedor__detalles-cantidad-suma:hover {
+  background-color: #2e2e2e;
+}
+
+.contenedor__detalles-btnCarrito {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  font-weight: bold;
+  height: 50px;
+  color: white;
+}
+
+.contenedor__detalles-btnCarrito:hover {
+  background-color: #2e2e2e;
+}
+
+/*-----------------Item Detail Carrito---------------------*/
+
+.contenedor__detallesCarrito {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10% auto;
+}
+
+.contenedor__detalles-imagen-imgCarrito {
+  width: 150px;
+  height: 150px;
+}
+
+.contenedor__detalles-item-tituloCarrito {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contenedor__detalles-item-precioCarrito {
+  margin-top: 3%;
+  margin-bottom: 5%;
+  font-size: 15px;
+}
+
+/*-----------------Item Detail Cart ---------------------*/
+
+.contenedor__detallesCart {
+  width: 40%;
+  min-width: 800px;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10% auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  background-color: #04293a;
+  border-bottom: solid #064663;
+  border-top: solid #064663;
+}
+.contenedor__detallesCart-imagen {
+  height: 100%;
+}
+
+.contenedor__detallesCart-imagen-imgCarrito {
+  padding: 8px;
+  width: auto;
+  height: 100%;
+}
+
+.contenedor__detallesCart-item {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 200px;
+}
+
+.cantidadCart__item {
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  text-align: center;
+  border: solid #064663;
+}
+
+.contenedor__iconsCart {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.contenedor__iconsCart button {
+  background-color: transparent;
+  border: none;
+}
+
+.contenedor__iconsCart--red {
+  color: #dc3545;
+}
+
+.contenedor__iconsCart--blue {
+  color: #0d6efd;
+}
