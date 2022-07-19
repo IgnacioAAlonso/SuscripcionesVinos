@@ -7,7 +7,7 @@ import {
     NavBtn,
 } from "./NavbarElements";
 import Logo from "../../images/logo-transparente.png";
-import Carrito from "../Carrito/Carrito";
+import Carrito from "../Carrito/carrito";
 
 const Navbar = () => {
     return (
