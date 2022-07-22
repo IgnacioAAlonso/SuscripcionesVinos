@@ -76,7 +76,7 @@ h4 {
   padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #064663;
 }

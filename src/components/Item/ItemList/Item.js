@@ -14,36 +14,47 @@ import ItemCount from '../ItemCount'
 } */
 
 const Item = ({ producto }) => {
-    const { id, title, description, price, stock, pictureUrl } = producto;
+    const { nombreDelVino,
+        productor,
+        region,
+        tipoDeVino,
+        variedadDeUva,
+        alcohol,
+        cosecha,
+        precio,
+        profundidadDelColor,
+        tonalidadDelColor,
+        limpidez,
+        intensidadDelAroma,
+        aromas,
+        secoDulce,
+        cuerpo,
+        acidez,
+        taninosNivel,
+        taninosTipo,
+        intensidadDelSabor,
+        sabores,
+        final,
+        conclusiones,
+        calificacion,
+        imagen,
+        id } = producto;
     let [state, setState] = useState(1);
-    let [stk, setStock] = useState(stock);
     return (
         <>
-            {(stk > 0) ?
-                (<div class="card card_item" style={{ width: '18rem' }}>
-                    <Link to={{
-                        pathname: `/item/${id}`
-                    }}
-                        state={{ producto }}
-                    >
-                        <img src={pictureUrl} class="card-img-top imagen_item" alt="Catalogo" />
-                    </Link>
-                    <div class="card-body card__bodyItem">
-                        <h5 class="card-title">{title}</h5>
-                        <p class="card-text">{description}</p>
-                        <ItemCount stock={stock} type="card" producto={producto} state={state} setState={setState} />
-                    </div>
-                </div >)
-                :
-                (<div class="card card_item--inhabilitado" style={{ width: '18rem' }}>
-                    <img src={pictureUrl} class="card-img-top imagen_item" alt="Catalogo" />
-                    <div class="card-body card__bodyItem">
-                        <h5 class="card-title">{title}</h5>
-                        <p class="card-text">{description}</p>
-                        <ItemCount stock={stock} type="card" producto={producto} state={0} setState={setState} />
-                    </div>
-                </div >)
-            }
+            <div class="card card_item" style={{ width: '18rem' }}>
+                <Link to={{
+                    pathname: `/item/${id}`
+                }}
+                    state={{ producto }}
+                >
+                    <img src={imagen} class="card-img-top imagen_item" alt="Catalogo" />
+                </Link>
+                <div class="card-body card__bodyItem">
+                    <h5 class="card-title">{nombreDelVino}</h5>
+                    <p class="card-text">{tipoDeVino}</p>
+                </div>
+            </div >
         </>
     )
 }
