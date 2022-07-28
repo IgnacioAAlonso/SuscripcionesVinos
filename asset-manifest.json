@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/republicadelauva/static/css/main.7eb925e0.chunk.css",
+    "main.js": "/republicadelauva/static/js/main.b0960df4.chunk.js",
+    "main.js.map": "/republicadelauva/static/js/main.b0960df4.chunk.js.map",
+    "runtime-main.js": "/republicadelauva/static/js/runtime-main.a63e3aae.js",
+    "runtime-main.js.map": "/republicadelauva/static/js/runtime-main.a63e3aae.js.map",
+    "static/js/2.d7b1a780.chunk.js": "/republicadelauva/static/js/2.d7b1a780.chunk.js",
+    "static/js/2.d7b1a780.chunk.js.map": "/republicadelauva/static/js/2.d7b1a780.chunk.js.map",
+    "static/js/3.20055920.chunk.js": "/republicadelauva/static/js/3.20055920.chunk.js",
+    "static/js/3.20055920.chunk.js.map": "/republicadelauva/static/js/3.20055920.chunk.js.map",
+    "index.html": "/republicadelauva/index.html",
+    "static/css/main.7eb925e0.chunk.css.map": "/republicadelauva/static/css/main.7eb925e0.chunk.css.map",
+    "static/js/2.d7b1a780.chunk.js.LICENSE.txt": "/republicadelauva/static/js/2.d7b1a780.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a63e3aae.js",
+    "static/js/2.d7b1a780.chunk.js",
+    "static/css/main.7eb925e0.chunk.css",
+    "static/js/main.b0960df4.chunk.js"
+  ]
+}
