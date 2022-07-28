@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes  >
-          <Route path='/republicadelauva/' element={<Home />} />
+          <Route path='/SuscripcionesVinos/' element={<Home />} />
           <Route path='/colecciones' element={<Colecciones />} />
           <Route path='/category/:id' element={<Colecciones />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />

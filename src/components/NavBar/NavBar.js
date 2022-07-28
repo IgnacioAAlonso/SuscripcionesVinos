@@ -15,7 +15,7 @@ const Navbar = () => {
             <Nav>
                 <Bars></Bars>
                 <NavMenu>
-                    <NavLink to="/republicadelauva/" activeStyle>
+                    <NavLink to="/SuscripcionesVinos/" activeStyle>
                         Inicio
                     </NavLink>
                     <NavLink to="/colecciones" activeStyle>
@@ -29,7 +29,7 @@ const Navbar = () => {
                     </NavLink>
                 </NavMenu>
 
-                <NavLink to="/republicadelauva/">
+                <NavLink to="/SuscripcionesVinos/">
                     <img class="imagen_logo" src={Logo} alt="Logo" />
                 </NavLink>
             </Nav>
