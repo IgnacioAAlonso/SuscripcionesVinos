@@ -141,3 +141,16 @@ label {
 .cart-display {
   display: none;
 }
+
+/*---------- MOVILE -------*/
+@media screen and (max-width: 768px){
+  .cart-form{
+    margin-top: 60px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .cart-form h5{
+    font-size: 36px;
+  }
+}

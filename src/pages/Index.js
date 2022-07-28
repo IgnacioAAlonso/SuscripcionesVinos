@@ -235,12 +235,12 @@ const Home = () => {
                                 <form id="miForm" onSubmit={handleSubmitBasico}>
                                     <div class="row g-3 align-items-center">
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Nombre del Vino</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Tipo de Vino</label>
                                             <select onChange={consthandleChange} type="text" class="form-control">
                                                 <option value="">-</option>
@@ -251,7 +251,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Variedad de Uva</label>
                                             {(tipoVino === 'Tinto') ?
                                                 <select type="text" class="form-control">
@@ -290,17 +290,17 @@ const Home = () => {
 
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Precio</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
                                         <div class="col-12">
                                             <label for="exampleInputEmail1" class="form-label">CONCLUSIONES</label>
-                                            <textarea type="text" class="form-control"></textarea>
+                                            <textarea type="textarea" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">CALIFICACIÓN</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
@@ -333,22 +333,22 @@ const Home = () => {
                                 <form id="miForm" onSubmit={handleSubmit}>
                                     <div class="row g-3 align-items-center">
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Nombre del Vino</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Productor</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-8">
+                                        <div class="col-12  col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Región</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Tipo de Vino</label>
                                             <select onChange={consthandleChange} type="text" class="form-control">
                                                 <option value="">-</option>
@@ -359,7 +359,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Variedad de Uva</label>
                                             {(tipoVino === 'Tinto') ?
                                                 <select type="text" class="form-control">
@@ -397,22 +397,22 @@ const Home = () => {
                                             }
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12  col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Alcohol</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Cosecha</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Precio</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">PROFUNDIDAD DEL COLOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -424,7 +424,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">TONALIDAD DE COLOR:</label>
                                             {(tipoVino === 'Tinto') ?
                                                 <select type="text" class="form-control">
@@ -454,7 +454,7 @@ const Home = () => {
                                             }
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">LIMPIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -467,7 +467,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL AROMA:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -478,12 +478,12 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">AROMAS:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">SECO/DULCE:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -496,7 +496,7 @@ const Home = () => {
                                         </div>
 
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">CUERPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -507,7 +507,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">ACIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -520,7 +520,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-5">
+                                        <div class="col-12 col-md-5">
                                             <label for="exampleInputPassword1" class="form-label">TANINOS NIVEL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -531,7 +531,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-5">
+                                        <div class="col-12 col-md-5">
                                             <label for="exampleInputPassword1" class="form-label">TANINOS TIPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -541,7 +541,7 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL SABOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -551,12 +551,12 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">SABORES:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">FINAL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -567,12 +567,12 @@ const Home = () => {
                                             </select>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12 col-md-12">
                                             <label for="exampleInputEmail1" class="form-label">CONCLUSIONES:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">CALIFICACIÓN:</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
@@ -601,7 +601,7 @@ const Home = () => {
                     <form id="miForm" onSubmit={submitLogIn}>
                         <div class="row g-3 align-items-center">
 
-                            <div class="col-4">
+                            <div class="col-12 col-md-4">
                                 <label for="exampleInputPassword1" class="form-label">Usuario:</label>
                                 <input type="text" class="form-control"></input>
                             </div>

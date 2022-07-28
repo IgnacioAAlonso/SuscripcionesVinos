@@ -11,8 +11,9 @@ export const Nav = styled.nav`
 
     @media screen and (max-width: 768px){
         display: flex;
-        align-items: center;
+        justify-content: center;
         flex-direction: column-reverse;
+        margin-top: 55px;
     }
 `;
 
@@ -44,6 +45,8 @@ export const NavMenu = styled.div`
 
     @media screen and (max-width: 768px){
         display: flex;
+        flex-direction: column;
+        margin-top: 5px;
     }
 `;
 

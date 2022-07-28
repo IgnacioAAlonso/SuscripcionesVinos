@@ -101,7 +101,7 @@ const ItemDetail = ({ item, type }) => {
             <>
                 <h5 class="tituloDetalles">{nombreDelVino}</h5>
 
-                <div >
+                <div class="contenedor__item">
                     <div class="contenedor__detalles">
                         <div class="contenedor__detalles-item">
                             <p class="contenedor__detalles-item-tituloComentarios">Comentarios</p>
@@ -149,26 +149,26 @@ const ItemDetail = ({ item, type }) => {
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="cart-form">
-                                <h5>Datos del Vino:</h5>
+                                <h5>Datos del Vino</h5>
                                 <form id="miForm" onSubmit={handleSubmit}>
                                     <div class="row g-3 align-items-center">
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Nombre del Vino</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Productor</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-8">
+                                        <div class="col-12 col-md-8">
                                             <label for="exampleInputPassword1" class="form-label">Región</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Tipo de Vino</label>
                                             <select onChange={consthandleChange} type="text" class="form-control">
                                                 <option value="">-</option>
@@ -179,7 +179,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">Variedad de Uva</label>
                                             {(tipoVino === 'Tinto') ?
                                                 <select type="text" class="form-control">
@@ -217,22 +217,22 @@ const ItemDetail = ({ item, type }) => {
                                             }
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Alcohol</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Cosecha</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">Precio</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">PROFUNDIDAD DEL COLOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -244,7 +244,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">TONALIDAD DE COLOR:</label>
                                             {(tipoVino === 'Tinto') ?
                                                 <select type="text" class="form-control">
@@ -274,7 +274,7 @@ const ItemDetail = ({ item, type }) => {
                                             }
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">LIMPIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -287,7 +287,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL AROMA:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -298,12 +298,12 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">AROMAS:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">SECO/DULCE:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -316,7 +316,7 @@ const ItemDetail = ({ item, type }) => {
                                         </div>
 
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">CUERPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -327,7 +327,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">ACIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -340,7 +340,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-5">
+                                        <div class="col-12 col-md-5">
                                             <label for="exampleInputPassword1" class="form-label">TANINOS NIVEL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -351,7 +351,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-5">
+                                        <div class="col-12 col-md-5">
                                             <label for="exampleInputPassword1" class="form-label">TANINOS TIPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -361,7 +361,7 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL SABOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -371,12 +371,12 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-6">
+                                        <div class="col-12 col-md-6">
                                             <label for="exampleInputPassword1" class="form-label">SABORES:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">FINAL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
@@ -387,17 +387,17 @@ const ItemDetail = ({ item, type }) => {
                                             </select>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12 col-md-12">
                                             <label for="exampleInputEmail1" class="form-label">CONCLUSIONES:</label>
                                             <textarea type="text" class="form-control"></textarea>
                                         </div>
 
-                                        <div class="col-4">
+                                        <div class="col-12 col-md-4">
                                             <label for="exampleInputPassword1" class="form-label">CALIFICACIÓN:</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
-                                        <div class="col-12">
+                                        <div class="col-12 col-md-12">
                                             <label for="exampleInputPassword1" class="form-label">Imagen (URL)</label>
                                             <input type="text" class="form-control"></input>
                                         </div>

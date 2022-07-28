@@ -358,3 +358,39 @@ label{
   padding: 0.3em;
   margin-top: 0.3em;
 }
+
+
+
+/*---------- MOVILE -------*/
+@media screen and (max-width: 768px){
+  .logIn{
+    text-align: center;
+  }
+
+  .contenedorAll{
+    margin-top: 60px;
+  }
+
+  .cotenedor__categorias{
+    margin-top: 60px;
+    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tituloDetalles{
+    margin-top: 60px;
+    width: 80%;
+  }
+
+  .contenedor__item{
+    margin-top: 60px;
+  }
+
+  .accordionType {
+    width: 80%;
+    margin: 10px auto;
+    background: black;
+}
+}
