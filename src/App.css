@@ -5,8 +5,8 @@
 }
 
 .imagen_logo {
-  height: auto;
-  width: 200px;
+  height: 50px;
+  overflow: hidden;
 }
 
 .cotenedor__categorias {
@@ -24,6 +24,32 @@
   background: #e7e7e7;
 }
 
+/* ------------ Inicio ---------- */
+.logIn{
+  font-size: 46px;
+  margin: 10px auto;
+  margin-bottom: 5%;
+  text-transform: uppercase;
+}
+
+.accordionType{
+  width: 70%;
+  margin: 10px auto;
+  background: black;
+}
+
+.accordionType-button{
+  background-color: #095375;
+  color: white;
+}
+
+.accordionType-bar{
+  background-color: transparent;
+}
+
+label{
+  text-transform: uppercase;
+}
 /* ------------ carousel ---------- */
 
 .carousel-itemButton {
@@ -73,7 +99,12 @@
 }
 
 /* ------------ Box Categorias ---------- */
-
+.categoriaVacia{
+  color: white;
+  text-transform: uppercase;
+  margin: 10% auto;
+  text-align: center;
+}
 .contenedorBox {
   width: 90%;
   max-width: 1500px;
@@ -149,6 +180,18 @@
 }
 
 /* Informacion */
+
+.tituloDetalles{
+  color: white;
+  text-align: center;
+  font-size: 46px;
+  text-transform: uppercase;
+  margin: 10% auto;
+  margin-bottom: 5%;
+  margin-top: 1%;
+  border-bottom: solid 1px grey;
+  width: 40%;
+}
 
 .contenedorInfo {
   text-align: center;

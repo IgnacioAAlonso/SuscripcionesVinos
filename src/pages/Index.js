@@ -4,23 +4,32 @@ import CartContext from "../components/Carrito/context/CartContext";
 import { addDoc, collection, getFirestore, getDocs, doc, where, query, updateDoc } from 'firebase/firestore';
 import '../App.css'
 
-function useAddCarrito(eventType, handler) {
-    useEffect(() => {
-
-        window.addEventListener(eventType, handler);
-        return () => {
-            window.removeEventListener(eventType, handler);
-        }
-    }, [handler])
-}
 
 const Home = () => {
+    /*<h5>Crear Usuario:</h5>
+                        <form id="miForm" onSubmit={submitUsuario}>
+                            <div class="row g-3 align-items-center">
+    
+                                <div class="col-4">
+                                    <label for="exampleInputPassword1" class="form-label">Nombre de Usuario:</label>
+                                    <input type="text" class="form-control"></input>
+                                </div>
+    
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                            <div id="miUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                Usuario cargado con éxito
+                            </div>
+                            <div id="miNotUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                Ya existe el usuario
+                            </div>
+                        </form>*/
 
     const setUser = useContext(CartContext).addOrder;
     const user = useContext(CartContext).orderId;
     let [usuario, setUsuario] = useState(false);
-    /*let [user, setUser] = useState();*/
     let [vino, setVino] = useState(false);
+    let [tipoVino, setTipoVino] = useState();
     let [arrayVinos, setVinos] = useState();
     let [opinion, setOpinion] = useState();
     const db = getFirestore();
@@ -135,15 +144,8 @@ const Home = () => {
             imagen: e.target[23].value,
             id: result
         }
-        console.log(e.target[0].value
-            && e.target[3].value
-            && e.target[21].value
-            && e.target[23].value)
 
-        if (e.target[0].value.length > 0
-            && e.target[3].value.length > 0
-            && e.target[21].value.length > 0
-            && e.target[23].value.length > 0) {
+        if (e.target[0].value.length > 0) {
             setOpinion(newItem)
             setVino(true);
             document.getElementById("miForm").reset();
@@ -161,20 +163,173 @@ const Home = () => {
         }
     }
 
+    const handleSubmitBasico = (e) => {
+        e.preventDefault()
+        let result = randomstring.generate(30);
+        const newItem = {
+            nombreDelVino: e.target[0].value,
+            productor: '',
+            region: '',
+            tipoDeVino: e.target[1].value,
+            variedadDeUva: e.target[2].value,
+            alcohol: '',
+            cosecha: '',
+            precio: e.target[3].value,
+            profundidadDelColor: '',
+            tonalidadDelColor: '',
+            limpidez: '',
+            intensidadDelAroma: '',
+            aromas: '',
+            secoDulce: '',
+            cuerpo: '',
+            acidez: '',
+            taninosNivel: '',
+            taninosTipo: '',
+            intensidadDelSabor: '',
+            sabores: '',
+            final: '',
+            conclusiones: e.target[4].value,
+            calificacion: e.target[5].value,
+            imagen: e.target[6].value,
+            id: result
+        }
+
+        if (e.target[0].value.length > 0) {
+            setOpinion(newItem)
+            setVino(true);
+            document.getElementById("miForm").reset();
+            document.getElementById("miFormAlert").classList.remove('hidenClass');
+            document.getElementById("miFormAlert").classList.add('showClass');
+            document.getElementById("miNotFormAlert").classList.remove('showClass');
+            document.getElementById("miNotFormAlert").classList.add('hidenClass');
+        }
+        else {
+            setVino(false);
+            document.getElementById("miNotFormAlert").classList.remove('hidenClass');
+            document.getElementById("miNotFormAlert").classList.add('showClass');
+            document.getElementById("miFormAlert").classList.remove('showClass');
+            document.getElementById("miFormAlert").classList.add('hidenClass');
+        }
+    }
+
+    const consthandleChange = (event) => {
+        console.log(event.target.value)
+        setTipoVino(event.target.value)
+        console.log(tipoVino)
+    }
+
     return (
         <div class="contenedorAll">
             {(user) ?
 
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
+                <div class="accordion accordion-flush accordionType" id="accordionFlushExample">
+                    <div class="accordion-itemaccordionType-bar">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed accordionType-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                CARGAR VINO - BASICO
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="cart-form">
+                                <h5 class="logIn">Datos del Vino</h5>
+                                <form id="miForm" onSubmit={handleSubmitBasico}>
+                                    <div class="row g-3 align-items-center">
+
+                                        <div class="col-8">
+                                            <label for="exampleInputPassword1" class="form-label">Nombre del Vino</label>
+                                            <input type="text" class="form-control"></input>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <label for="exampleInputPassword1" class="form-label">Tipo de Vino</label>
+                                            <select onChange={consthandleChange} type="text" class="form-control">
+                                                <option value="">-</option>
+                                                <option value="Tinto">Tinto</option>
+                                                <option value="Blanco">Blanco</option>
+                                                <option value="Rosado">Rosado</option>
+                                                <option value="Espumante">Espumante</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <label for="exampleInputPassword1" class="form-label">Variedad de Uva</label>
+                                            {(tipoVino === 'Tinto') ?
+                                                <select type="text" class="form-control">
+                                                    <option value="">-</option>
+                                                    <option value="Blend">Blend</option>
+                                                    <option value="Bonarda">Bonarda</option>
+                                                    <option value="Cabernet Franc">Cabernet Franc</option>
+                                                    <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+                                                    <option value="Garnacha">Garnacha</option>
+                                                    <option value="Malbec">Malbec</option>
+                                                    <option value="Merlot">Merlot</option>
+                                                    <option value="Pinot Noir">Pinot Noir</option>
+                                                    <option value="Petit Verdot">Petit Verdot</option>
+                                                    <option value="Sangoviese">Sangoviese</option>
+                                                    <option value="Syrah">Syrah</option>
+                                                    <option value="Tannat">Tannat</option>
+                                                    <option value="Tempranillo">Tempranillo</option>
+                                                </select>
+                                                : (tipoVino === 'Blanco') ?
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                        <option value="Chardonnay">Chardonnay</option>
+                                                        <option value="Gewürztraminer">Gewürztraminer</option>
+                                                        <option value="Pinot Gris">Pinot Gris</option>
+                                                        <option value="Riesling">Riesling</option>
+                                                        <option value="Sauvignon Blanc">Sauvignon Blanc</option>
+                                                        <option value="Semillón">Semillón</option>
+                                                        <option value="Torrontés">Torrontés</option>
+                                                        <option value="Viognier">Viognier</option>
+                                                    </select>
+                                                    :
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                    </select>
+                                            }
+
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label for="exampleInputPassword1" class="form-label">Precio</label>
+                                            <input type="text" class="form-control"></input>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="exampleInputEmail1" class="form-label">CONCLUSIONES</label>
+                                            <textarea type="text" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label for="exampleInputPassword1" class="form-label">CALIFICACIÓN</label>
+                                            <input type="text" class="form-control"></input>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="exampleInputPassword1" class="form-label">Imagen (url)</label>
+                                            <input type="text" class="form-control"></input>
+                                        </div>
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                                    <div id="miFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                        Datos cargados con éxito
+                                    </div>
+                                    <div id="miNotFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
+                                        Faltan datos por cargar
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button class="accordion-button collapsed accordionType-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 CARGAR VINO - AVANZADO
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="cart-form">
-                                <h5>Datos del Vino:</h5>
+                                <h5 class="logIn">Datos del Vino</h5>
                                 <form id="miForm" onSubmit={handleSubmit}>
                                     <div class="row g-3 align-items-center">
 
@@ -195,23 +350,51 @@ const Home = () => {
 
                                         <div class="col-6">
                                             <label for="exampleInputPassword1" class="form-label">Tipo de Vino</label>
-                                            <select type="text" class="form-control">
-                                                <option value=""></option>
-                                                <option value="tinto">Tinto</option>
-                                                <option value="blanco">Blanco</option>
-                                                <option value="rosado">Rosado</option>
-                                                <option value="espumante">Espumante</option>
+                                            <select onChange={consthandleChange} type="text" class="form-control">
+                                                <option value="">-</option>
+                                                <option value="Tinto">Tinto</option>
+                                                <option value="Blanco">Blanco</option>
+                                                <option value="Rosado">Rosado</option>
+                                                <option value="Espumante">Espumante</option>
                                             </select>
                                         </div>
 
                                         <div class="col-6">
                                             <label for="exampleInputPassword1" class="form-label">Variedad de Uva</label>
-                                            <select type="text" class="form-control">
-                                                <option value=""></option>
-                                                <option value="malbec">Malbec</option>
-                                                <option value="frank">Frank</option>
-                                                <option value="pinotnoir">Pinot Noir</option>
-                                            </select>
+                                            {(tipoVino === 'Tinto') ?
+                                                <select type="text" class="form-control">
+                                                    <option value="">-</option>
+                                                    <option value="Blend">Blend</option>
+                                                    <option value="Bonarda">Bonarda</option>
+                                                    <option value="Cabernet Franc">Cabernet Franc</option>
+                                                    <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
+                                                    <option value="Garnacha">Garnacha</option>
+                                                    <option value="Malbec">Malbec</option>
+                                                    <option value="Merlot">Merlot</option>
+                                                    <option value="Pinot Noir">Pinot Noir</option>
+                                                    <option value="Petit Verdot">Petit Verdot</option>
+                                                    <option value="Sangoviese">Sangoviese</option>
+                                                    <option value="Syrah">Syrah</option>
+                                                    <option value="Tannat">Tannat</option>
+                                                    <option value="Tempranillo">Tempranillo</option>
+                                                </select>
+                                                : (tipoVino === 'Blanco') ?
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                        <option value="Chardonnay">Chardonnay</option>
+                                                        <option value="Gewürztraminer">Gewürztraminer</option>
+                                                        <option value="Pinot Gris">Pinot Gris</option>
+                                                        <option value="Riesling">Riesling</option>
+                                                        <option value="Sauvignon Blanc">Sauvignon Blanc</option>
+                                                        <option value="Semillón">Semillón</option>
+                                                        <option value="Torrontés">Torrontés</option>
+                                                        <option value="Viognier">Viognier</option>
+                                                    </select>
+                                                    :
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                    </select>
+                                            }
                                         </div>
 
                                         <div class="col-4">
@@ -233,36 +416,54 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">PROFUNDIDAD DEL COLOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="acuoso">Acuoso</option>
-                                                <option value="palido">Pálido</option>
-                                                <option value="mediano">Mediano</option>
+                                                <option value="Acuoso">Acuoso</option>
+                                                <option value="Pálido">Pálido</option>
+                                                <option value="Mediano">Mediano</option>
                                                 <option value="Profundo">Profundo</option>
-                                                <option value="Oscuro">oscuro</option>
+                                                <option value="Oscuro">Oscuro</option>
                                             </select>
                                         </div>
 
                                         <div class="col-4">
                                             <label for="exampleInputPassword1" class="form-label">TONALIDAD DE COLOR:</label>
-                                            <select type="text" class="form-control">
-                                                <option value="">-</option>
-                                                <option value="acuoso">Acuoso</option>
-                                                <option value="palido">Pálido</option>
-                                                <option value="mediano">Mediano</option>
-                                                <option value="Profundo">Profundo</option>
-                                                <option value="Oscuro">oscuro</option>
-                                            </select>
+                                            {(tipoVino === 'Tinto') ?
+                                                <select type="text" class="form-control">
+                                                    <option value="">-</option>
+                                                    <option value="Rojo-Púrpura">Rojo-Púrpura</option>
+                                                    <option value="Rubí">Rubí</option>
+                                                    <option value="Granate">Granate</option>
+                                                    <option value="Ladrillo">Ladrillo</option>
+                                                    <option value="Marrón">Marrón</option>
+                                                </select>
+                                                : (tipoVino === 'Rosado') ?
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                        <option value="Rosa">Rosa</option>
+                                                        <option value="Salmón">Salmón</option>
+                                                        <option value="Rosa Anaranjado">Rosa Anaranjado</option>
+                                                    </select>
+                                                    :
+                                                    <select type="text" class="form-control">
+                                                        <option value="">-</option>
+                                                        <option value="Verdoso">Verdoso</option>
+                                                        <option value="Amarillo">Amarillo</option>
+                                                        <option value="Amarillo Paja">Amarillo Paja</option>
+                                                        <option value="Dorado">Dorado</option>
+                                                        <option value="Ámbar">Ámbar</option>
+                                                    </select>
+                                            }
                                         </div>
 
                                         <div class="col-4">
                                             <label for="exampleInputPassword1" class="form-label">LIMPIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="brillante">brillante</option>
-                                                <option value="cristalino">cristalino</option>
-                                                <option value="limpio">limpio</option>
-                                                <option value="apagado">apagado</option>
-                                                <option value="turbio">turbio</option>
-                                                <option value="nublado">nublado</option>
+                                                <option value="Brillante">Brillante</option>
+                                                <option value="Cristalino">Cristalino</option>
+                                                <option value="Limpio">Limpio</option>
+                                                <option value="Apagado">Apagado</option>
+                                                <option value="Turbio">Turbio</option>
+                                                <option value="Nublado">Nublado</option>
                                             </select>
                                         </div>
 
@@ -270,10 +471,10 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL AROMA:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="débil">Débil</option>
-                                                <option value="moderado">moderado</option>
-                                                <option value="aromático">aromático</option>
-                                                <option value="potente">potente</option>
+                                                <option value="Débil">Débil</option>
+                                                <option value="Moderado">Moderado</option>
+                                                <option value="Aromático">Aromático</option>
+                                                <option value="Potente">Potente</option>
                                             </select>
                                         </div>
 
@@ -286,11 +487,11 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">SECO/DULCE:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="muy seco">muy seco</option>
-                                                <option value="seco">seco</option>
-                                                <option value="semi-seco">semi-seco</option>
-                                                <option value="abocado">abocado</option>
-                                                <option value="dulce">dulce</option>
+                                                <option value="Muy Seco">Muy Seco</option>
+                                                <option value="Seco">Seco</option>
+                                                <option value="Semi-Seco">Semi-Seco</option>
+                                                <option value="Abocado">Abocado</option>
+                                                <option value="Dulce">Dulce</option>
                                             </select>
                                         </div>
 
@@ -299,10 +500,10 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">CUERPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="muy liviano">muy liviano</option>
-                                                <option value="liviano">liviano</option>
-                                                <option value="medio">medio</option>
-                                                <option value="mucho cuerpo">mucho cuerpo</option>
+                                                <option value="Muy Liviano">Muy Liviano</option>
+                                                <option value="Liviano">Liviano</option>
+                                                <option value="Medio">Medio</option>
+                                                <option value="Mucho Cuerpo">Mucho Cuerpo</option>
                                             </select>
                                         </div>
 
@@ -310,12 +511,12 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">ACIDEZ:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="excesivo">excesivo</option>
-                                                <option value="ácido">ácido</option>
-                                                <option value="vivo">vivo</option>
-                                                <option value="fresco">fresco</option>
-                                                <option value="suave">suave</option>
-                                                <option value="flojo">flojo</option>
+                                                <option value="Excesivo">Excesivo</option>
+                                                <option value="Ácido">Ácido</option>
+                                                <option value="Vivo">Vivo</option>
+                                                <option value="Fresco">Fresco</option>
+                                                <option value="Suave">Suave</option>
+                                                <option value="Flojo">Flojo</option>
                                             </select>
                                         </div>
 
@@ -323,10 +524,10 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">TANINOS NIVEL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="ninguno">ninguno</option>
-                                                <option value="débil">débil</option>
-                                                <option value="mediano">mediano</option>
-                                                <option value="alto">alto</option>
+                                                <option value="Ninguno">Ninguno</option>
+                                                <option value="Débil">Débil</option>
+                                                <option value="Mediano">Mediano</option>
+                                                <option value="Alto">Alto</option>
                                             </select>
                                         </div>
 
@@ -334,9 +535,9 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">TANINOS TIPO:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="suave">suave</option>
-                                                <option value="astringente">astringente</option>
-                                                <option value="duro">duro</option>
+                                                <option value="Suave">Suave</option>
+                                                <option value="Astringente">Astringente</option>
+                                                <option value="Duro">Duro</option>
                                             </select>
                                         </div>
 
@@ -344,9 +545,9 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">INTENSIDAD DEL SABOR:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="débil">Débil</option>
-                                                <option value="moderado">moderado</option>
-                                                <option value="potente">potente</option>
+                                                <option value="Débil">Débil</option>
+                                                <option value="Moderado">Moderado</option>
+                                                <option value="Potente">Potente</option>
                                             </select>
                                         </div>
 
@@ -359,10 +560,10 @@ const Home = () => {
                                             <label for="exampleInputPassword1" class="form-label">FINAL:</label>
                                             <select type="text" class="form-control">
                                                 <option value="">-</option>
-                                                <option value="Corto">Corto (menos 3 seg) </option>
-                                                <option value="mediano">mediano (4-5)</option>
+                                                <option value="Corto (menos 3 seg)">Corto (menos 3 seg)</option>
+                                                <option value="Mediano">Mediano (4-5)</option>
                                                 <option value="Largo (5-7)">Largo (5-7)</option>
-                                                <option value=" muy largo (>8 seg)">muy largo (mas 8 seg)</option>
+                                                <option value="Muy Largo (>8 seg)">Muy Largo (mas 8 seg)</option>
                                             </select>
                                         </div>
 
@@ -377,7 +578,7 @@ const Home = () => {
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="exampleInputPassword1" class="form-label">Imagen</label>
+                                            <label for="exampleInputPassword1" class="form-label">Imagen (URL)</label>
                                             <input type="text" class="form-control"></input>
                                         </div>
 
@@ -393,44 +594,15 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                CARGAR VINO - BASICO
-                            </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                        </div>
-                    </div>
                 </div>
                 :
                 <div class="cart-form">
-                    <h5>Crear Usuario:</h5>
-                    <form id="miForm" onSubmit={submitUsuario}>
-                        <div class="row g-3 align-items-center">
-
-                            <div class="col-4">
-                                <label for="exampleInputPassword1" class="form-label">Nombre de Usuario:</label>
-                                <input type="text" class="form-control"></input>
-                            </div>
-
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-                        <div id="miUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                            Usuario cargado con éxito
-                        </div>
-                        <div id="miNotUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                            Ya existe el usuario
-                        </div>
-                    </form>
-
-                    <h5>Ingresar Usuario:</h5>
+                    <h5 class="logIn">Ingresar Usuario</h5>
                     <form id="miForm" onSubmit={submitLogIn}>
                         <div class="row g-3 align-items-center">
 
                             <div class="col-4">
-                                <label for="exampleInputPassword1" class="form-label">Nombre de Usuario:</label>
+                                <label for="exampleInputPassword1" class="form-label">Usuario:</label>
                                 <input type="text" class="form-control"></input>
                             </div>
 
@@ -453,26 +625,6 @@ const Home = () => {
                             vinos: arrayVinos
                         })
                         console.log(user);
-                        /*
-                        Link to={{
-                        pathname: `/colecciones`
-                    }}
-                        getDocs(data).then((snapshot) => {
-                snapshot.docs.map((element) => {
-                    console.log(element.data().usuario)
-                    if (newUsuario === element.data().usuario) {
-                        creado = true;
-                        setUsuario(true);
-                        setUser(newUsuario);
-                        document.getElementById("miForm").reset();
-                    }
-                })
-            })
-
-                        const data = doc(db, "usuarios")
-                        updateDoc(data, order).then((res) => {
-                            setOrder(res.id);
-                        })*/
                     }}>
                         <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas"> Cargar Vino </button>
                     </Link>)

@@ -39,7 +39,7 @@ const Item = ({ producto }) => {
         calificacion,
         imagen,
         id } = producto;
-    let [state, setState] = useState(1);
+
     return (
         <>
             <div class="card card_item" style={{ width: '18rem' }}>

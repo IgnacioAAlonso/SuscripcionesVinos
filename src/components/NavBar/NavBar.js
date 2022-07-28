@@ -6,7 +6,7 @@ import {
     NavMenu,
     NavBtn,
 } from "./NavbarElements";
-import Logo from "../../images/logo-transparente.png";
+import Logo from "../../images/republica.png";
 import Carrito from "../Carrito/carrito";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
             <Nav>
                 <Bars></Bars>
                 <NavMenu>
-                    <NavLink to="/YokaiColeccionables/" activeStyle>
+                    <NavLink to="/republicadelauva/" activeStyle>
                         Inicio
                     </NavLink>
                     <NavLink to="/colecciones" activeStyle>
@@ -29,13 +29,9 @@ const Navbar = () => {
                     </NavLink>
                 </NavMenu>
 
-                <NavLink to="/YokaiColeccionables/">
+                <NavLink to="/republicadelauva/">
                     <img class="imagen_logo" src={Logo} alt="Logo" />
                 </NavLink>
-
-                <NavBtn>
-                    <Carrito />
-                </NavBtn>
             </Nav>
         </>
     );

@@ -10,7 +10,9 @@ export const Nav = styled.nav`
     z-index: 10;
 
     @media screen and (max-width: 768px){
-        padding: 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
     }
 `;
 
@@ -31,17 +33,6 @@ export const NavLink = styled(Link)`
 export const Bars = styled(FaBars)`
     display: none;
     color: #fff;
-
-    @media screen and (max-width: 768px){
-        display: flex;
-        justify-self: flex-start;
-        align-self: center;
-
-        width: 100vw;
-        font-size: 2.2rem;
-
-        cursor: pointer;
-    }
 `;
 
 export const NavMenu = styled.div`
@@ -50,8 +41,9 @@ export const NavMenu = styled.div`
     margin-right: -10px;
     width: 100vw;
     white-space: nowrap;
+
     @media screen and (max-width: 768px){
-        display: none;
+        display: flex;
     }
 `;
 

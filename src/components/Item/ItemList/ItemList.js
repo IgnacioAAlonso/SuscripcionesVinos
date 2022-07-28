@@ -8,9 +8,10 @@ const ItemList = ({ }) => {
     const { id } = useParams();
     const [category, setCategory] = useState([]);
     const user = useContext(CartContext).orderId;
+    const newItem = []
+    const db = getFirestore();
 
     useEffect(() => {
-        const db = getFirestore();
         console.log(user)
         const data = doc(db, 'usuarios', user);
         console.log(getDoc(data))
@@ -28,7 +29,8 @@ const ItemList = ({ }) => {
     }, [])
 
     useEffect(() => {
-        const db = getFirestore();
+
+        setCategory(newItem)
         if (id === undefined) {
             const data = doc(db, 'usuarios', user);
             getDoc(data).then((snapshot) => {
@@ -37,18 +39,35 @@ const ItemList = ({ }) => {
                 }))
             })
         } else {
-            const q = query(collection(db, "items"), where('category', '==', id));
-            getDocs(q).then((res) => {
-                setCategory(res.docs.map((doc) => ({ ...doc.data() })));
+            const data = collection(db, "usuarios");
+            getDocs(data).then((snapshot) => {
+                snapshot.docs.map((element) => {
+                    if (user === element.id) {
+                        setCategory(element.data().vinos.map((vino) => {
+                            if (id === vino.tipoDeVino) {
+                                return vino
+                            }
+                        }))
+                    }
+                })
             })
         }
+
+
     }, [id])
 
     return (
         <>
-            {category.map((producto) => (
-                <Item producto={producto} />
-            ))}
+            {(category[0] !== undefined) ?
+
+                category.map((producto) => (
+                    <Item producto={producto} />
+                ))
+                :
+                <div class='categoriaVacia'>
+                    No hay vinos para esta categoria
+                </div>
+            }
         </>
     )
 

@@ -63,19 +63,19 @@
 /*-----------------Item Detail---------------------*/
 
 .contenedor__detalles {
-  width: 90%;
-  height: 90vh;
+  width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   margin: 10% auto;
   margin-top: 15px;
+  margin-bottom: 3%;
 }
 
 .contenedor__detalles-imagen {
   width: 40%;
   height: auto;
-  margin-right: 15%;
+  margin-left: 15%;
 }
 
 .contenedor__detalles-imagen-img {
@@ -90,16 +90,23 @@
   color: white;
 }
 
+.contenedor__detalles-item p{
+  text-transform: uppercase;
+}
+
 .contenedor__detalles-item-titulo {
   font-weight: bold;
   font-size: 36px;
 }
 
-.contenedor__detalles-item-precio {
+.contenedor__detalles-item-tituloComentarios {
   margin-top: 5%;
-  margin-bottom: 5%;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
+}
+
+.contenedor__detalles-item-comentarios {
+  border-bottom: solid 1px white;
 }
 
 .contenedor__detalles-cantidad {
@@ -158,6 +165,25 @@
   background-color: #2e2e2e;
 }
 
+.contenedor__tecnica {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10% auto;
+  margin-top: 3%;
+}
+
+.contenedor__tecnica-titulo {
+  margin-top: 1%;
+  font-weight: bold;
+  font-size: 28px;
+  color: white;
+}
+
+.contenedor__tecnica p{
+  text-transform: uppercase;
+}
 /*-----------------Item Detail Carrito---------------------*/
 
 .contenedor__detallesCarrito {
