@@ -395,9 +395,20 @@
 
 .accordionType__item{
   width: 90%;
+  margin-bottom: 5%;
 }
+
+.accordionType__item-collapsed button{
+  border-radius: 10px;
+  width: 100%;
+  background-color: transparent;
+  color: #FAEBD7;
+  border: none;
+  font-size: 22px;
+}
+
 .cart-form-vino-accordion{
-  width: 40%;
+  width: 100%;
 }
 
 /*

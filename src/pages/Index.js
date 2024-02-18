@@ -8,8 +8,8 @@ import '../App.css'
 
 const Home = ({ setIsNavbarActive }) => {
 
-    const setUser = useContext(CartContext).addOrder;
-    const user = useContext(CartContext).orderId;
+    const setUser       = useContext(CartContext).addOrder;
+    const user          = useContext(CartContext).orderId;
     let [usuario, setUsuario] = useState(false);
     let [vino, setVino] = useState(false);
     let [tipoVino, setTipoVino] = useState();
@@ -19,7 +19,6 @@ const Home = ({ setIsNavbarActive }) => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     var randomstring = require("randomstring");
-    console.log("USUARIO: " + user);
 
     const submitUsuario = (e) => {
         e.preventDefault()
@@ -30,7 +29,6 @@ const Home = ({ setIsNavbarActive }) => {
             var creado = false;
             getDocs(data).then((snapshot) => {
                 snapshot.docs.map((element) => {
-                    console.log(element.data().usuario)
                     if (newUsuario === element.data().usuario) {
                         creado = true;
                         document.getElementById("miForm").reset();
@@ -66,13 +64,11 @@ const Home = ({ setIsNavbarActive }) => {
     const submitLogIn = (e) => {
         e.preventDefault()
         const newUsuario = e.target[0].value.toLowerCase();
-        const newItem = { usuario: e.target[0].value }
         if (e.target[0].value.length > 0) {
             const data = collection(db, "usuarios");
             var creado = false;
             getDocs(data).then((snapshot) => {
                 snapshot.docs.map((element) => {
-                    console.log(element.data().usuario)
                     if (newUsuario === element.data().usuario) {
                         setIsNavbarActive(true);
                         creado = true;
@@ -181,7 +177,19 @@ const Home = ({ setIsNavbarActive }) => {
         }
 
         if (e.target[0].value.length > 0) {
-            setOpinion(newItem)
+            if (user){
+                const data = collection(db, "usuarios");
+                getDocs(data).then((snapshot) => {
+                    snapshot.docs.map((element) => {
+                        if (user === element.id) {
+                            setUser(element.id);
+                            setVinos(element.data().vinos)
+                        }
+                    })
+                })
+            }
+
+            setOpinion(newItem);
             setVino(true);
             document.getElementById("miForm").reset();
             document.getElementById("miFormAlert").classList.add('form-button-dis');
@@ -196,9 +204,15 @@ const Home = ({ setIsNavbarActive }) => {
     }
 
     const consthandleChange = (event) => {
-        console.log(event.target.value)
         setTipoVino(event.target.value)
-        console.log(tipoVino)
+    }
+
+    const finalizeWineLoading = (e) => {
+        const userRef = doc(db, 'usuarios', user);
+        arrayVinos.push(opinion);
+        updateDoc(userRef, {
+            vinos: arrayVinos
+        });
     }
 
     return (
@@ -303,21 +317,21 @@ const Home = ({ setIsNavbarActive }) => {
 
                                     <div class="cart-form-vino-button">
                                         <button id="miFormAlert" type="submit" class="mt-3 form-button">Cargar Vino</button>
+
                                         {(vino) ?
                                             (<Link to={{
                                                 pathname: `/colecciones`
                                             }} onClick={() => {
                                                 const userRef = doc(db, 'usuarios', user);
-                                                arrayVinos.push(opinion)
+                                                arrayVinos.push(opinion);
                                                 updateDoc(userRef, {
                                                     vinos: arrayVinos
                                                 })
-                                                console.log(user);
                                             }}>
-                                                <button id="form-button-vino" class="mt-3 form-button" data-bs-dismiss="offcanvas"> Finalizar Carga </button>
+                                                <button type="button" id="form-button-vino" class="mt-3 form-button" data-bs-dismiss="offcanvas"> Finalizar Carga </button>
                                             </Link>)
                                             :
-                                            (<button class="mt-3 form-button-dis"> Finalizar Carga </button>)
+                                            (<button  type="button" class="mt-3 form-button-dis"> Finalizar Carga </button>)
                                         }
                                     </div>
 
