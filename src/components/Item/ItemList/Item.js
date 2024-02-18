@@ -52,7 +52,10 @@ const Item = ({ producto }) => {
                 </Link>
                 <div class="card-body card__bodyItem">
                     <h5 class="card-title">{nombreDelVino}</h5>
-                    <p class="card-text">{tipoDeVino}</p>
+                    <div class="card__bodyItem-info">
+                        <p class="card-text">{variedadDeUva}</p>
+                        <p class="card-text">{calificacion}</p>
+                    </div>
                 </div>
             </div >
         </>

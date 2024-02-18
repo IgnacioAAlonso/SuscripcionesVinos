@@ -1,12 +1,16 @@
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: black;
+  /*background: linear-gradient(to right, #ff9999, #ffcc66);*/
+  background-image: repeating-linear-gradient(45deg, #f0ece7, #f0ece7 10px, #FAEBD7 10px, #FAEBD7 50px); /* Patrón de líneas diagonales */
+  /*background-color: #FAEBD7;*/
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5); /* Sombra interna */
 }
 
 code {
@@ -16,4 +20,25 @@ code {
 
 a:hover {
   color: #0d76a7;
+}
+
+#root{
+  min-height: 100vh;
+}
+
+.contenedorAll{
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+/*---------- MOVILE -------*/
+@media screen and (max-width: 768px){
+  .contenedorAll{
+    min-height: 100vh;
+  }
+
+  body {
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.1); /* Sombra interna */
+  }
 }

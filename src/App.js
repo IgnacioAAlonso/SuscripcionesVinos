@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Index'
@@ -12,14 +12,15 @@ import Contacto from './pages/Contacto';
 import CustomCarrito from './components/Carrito/CustomCarrito';
 
 function App() {
+  const [isNavbarActive, setIsNavbarActive] = useState(false);
 
   return (
     <CustomCarrito>
 
       <Router>
-        <Navbar />
+        {isNavbarActive && <Navbar />}
         <Routes  >
-          <Route path='/SuscripcionesVinos/' element={<Home />} />
+          <Route path='/SuscripcionesVinos/' element={<Home setIsNavbarActive={setIsNavbarActive} />} />
           <Route path='/colecciones' element={<Colecciones />} />
           <Route path='/category/:id' element={<Colecciones />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />

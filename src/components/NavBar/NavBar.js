@@ -16,22 +16,22 @@ const Navbar = () => {
                 <Bars></Bars>
                 <NavMenu>
                     <NavLink to="/SuscripcionesVinos/" activeStyle>
-                        Inicio
+                        INICIO
                     </NavLink>
                     <NavLink to="/colecciones" activeStyle>
-                        Colecciones
+                        COLECCIONES
                     </NavLink>
-                    <NavLink to="/contacto" activeStyle>
+                    {/*<NavLink to="/contacto" activeStyle>
                         Contacto
                     </NavLink>
                     <NavLink to="/nosotros" activeStyle>
                         Nosotros
-                    </NavLink>
+                    </NavLink>*/}
                 </NavMenu>
 
-                <NavLink to="/SuscripcionesVinos/">
+                {/*<NavLink to="/SuscripcionesVinos/">
                     <img class="imagen_logo" src={Logo} alt="Logo" />
-                </NavLink>
+                </NavLink>*/}
             </Nav>
         </>
     );

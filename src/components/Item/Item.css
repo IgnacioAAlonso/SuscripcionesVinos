@@ -31,23 +31,10 @@
   margin-top: 10px;
 }
 
-.imagen_item {
-  object-fit: cover;
-  width: 110%;
-  margin: 0;
-  padding: 0;
-  height: 300px;
-  position: relative;
-  left: -5%;
-  top: -0.2%;
-}
-
 .card_item {
   margin: 6px;
-  background-color: #041c32;
-  /*
-  background-color: #150050;
-  */
+  padding: 0px;
+  background-color: #800020;
 }
 
 .card_item--inhabilitado{
@@ -57,7 +44,34 @@
 }
 
 .card__bodyItem {
-  color: white;
+  color: #f7f2ec;
+}
+
+.card__bodyItem-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card_item a{
+  display: inline-block;
+  overflow: hidden; 
+}
+
+.imagen_item {
+  object-fit: cover;
+  width: 110%;
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  position: relative;
+  left: -5%;
+  top: -0.2%;
+  transition: transform 0.3s ease;
+}
+
+.imagen_item:hover {
+  transform: scale(1.1); /* Aumenta la escala de la imagen en un 10% */
 }
 
 /*-----------------Item Detail---------------------*/
@@ -66,7 +80,7 @@
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 10% auto;
   margin-top: 15px;
   margin-bottom: 3%;
@@ -76,6 +90,7 @@
   width: 40%;
   height: auto;
   margin-left: 15%;
+  display: flex;
 }
 
 .contenedor__detalles-imagen-img {
@@ -92,6 +107,8 @@
 
 .contenedor__detalles-item p{
   text-transform: uppercase;
+  font-size: 18px;
+  color: #FAEBD7;
 }
 
 .contenedor__detalles-item-titulo {
@@ -184,6 +201,63 @@
 .contenedor__tecnica p{
   text-transform: uppercase;
 }
+
+.item__contenedor__item{
+  max-width: 1000px;
+  margin: 10px auto;
+  margin-bottom: 25px;  
+  padding: 40px 50px;
+  border-radius: 20px;
+  background-color: #394720;
+  border: 2px groove #ffc06d;
+  box-shadow: 0 4px 8px rgba(1, 1, 1, 0.7); /* Sombra */
+}
+
+.accordionType__item{
+  max-width: 1000px;
+  margin: 10px auto; 
+  border-radius: 20px;
+  background-color: #394720;
+  border: 2px groove #ffc06d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordionType__item-collapsed button{
+  border-radius: 10px;
+  width: 900px;
+  background-color: transparent;
+  color: #FAEBD7;
+  border: none;
+  font-size: 22px;
+}
+
+.cart-form-vino-accordion{
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto;
+  margin-bottom: 25px;  
+  padding: 40px 50px;
+  border-radius: 20px;
+  background-color: #394720;
+  border: 2px groove #ffc06d;
+}
+.cart-form-vino-accordion h5 {
+  font-size: 45px;
+  text-align: center;
+  line-height: 1.2;
+  color: #FAEBD7;
+  font-weight: 500;
+}
+.cart-form-vino-accordion label {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.2;
+  color: #FAEBD7;
+  font-weight: 500;
+}
+
 /*-----------------Item Detail Carrito---------------------*/
 
 .contenedor__detallesCarrito {
@@ -279,10 +353,13 @@
 }
 
 @media screen and (max-width: 768px){
+  .item__contenedor__item{
+    width: 90%;
+  }
   .contenedor__detalles {
-    width: 80%;
+    width: 100%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10% auto;
@@ -291,11 +368,11 @@
 }
 
   .contenedor__detalles-imagen {
-  width: 100%;
+  width: 80%;
   height: auto;
   margin: 10% auto;
   margin-top: 0px;
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
   .contenedor__detalles-imagen-img {
@@ -312,6 +389,18 @@
   color: white;
 }
 
+.contenedor__detalles-item p{
+  text-align: center;
+}
+
+.accordionType__item{
+  width: 90%;
+}
+.cart-form-vino-accordion{
+  width: 40%;
+}
+
+/*
 .contenedor__tecnica {
   width: 80%;
   display: flex;
@@ -325,5 +414,5 @@
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 15px;
-}
+}*/
 }

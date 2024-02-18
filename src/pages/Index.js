@@ -2,28 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { NavLink as Link, withRouter } from 'react-router-dom';
 import CartContext from "../components/Carrito/context/CartContext";
 import { addDoc, collection, getFirestore, getDocs, doc, where, query, updateDoc } from 'firebase/firestore';
+import Icon from "../images/user-icon.png";
 import '../App.css'
 
 
-const Home = () => {
-    /*<h5>Crear Usuario:</h5>
-                        <form id="miForm" onSubmit={submitUsuario}>
-                            <div class="row g-3 align-items-center">
-    
-                                <div class="col-4">
-                                    <label for="exampleInputPassword1" class="form-label">Nombre de Usuario:</label>
-                                    <input type="text" class="form-control"></input>
-                                </div>
-    
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-                            <div id="miUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                                Usuario cargado con éxito
-                            </div>
-                            <div id="miNotUsuarioAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                                Ya existe el usuario
-                            </div>
-                        </form>*/
+const Home = ({ setIsNavbarActive }) => {
 
     const setUser = useContext(CartContext).addOrder;
     const user = useContext(CartContext).orderId;
@@ -36,6 +19,7 @@ const Home = () => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     var randomstring = require("randomstring");
+    console.log("USUARIO: " + user);
 
     const submitUsuario = (e) => {
         e.preventDefault()
@@ -81,7 +65,7 @@ const Home = () => {
 
     const submitLogIn = (e) => {
         e.preventDefault()
-        const newUsuario = e.target[0].value
+        const newUsuario = e.target[0].value.toLowerCase();
         const newItem = { usuario: e.target[0].value }
         if (e.target[0].value.length > 0) {
             const data = collection(db, "usuarios");
@@ -90,6 +74,7 @@ const Home = () => {
                 snapshot.docs.map((element) => {
                     console.log(element.data().usuario)
                     if (newUsuario === element.data().usuario) {
+                        setIsNavbarActive(true);
                         creado = true;
                         setUsuario(true);
                         setUser(element.id);
@@ -168,6 +153,7 @@ const Home = () => {
         let result = randomstring.generate(30);
         const newItem = {
             nombreDelVino: e.target[0].value,
+            bodega: e.target[4].value,
             productor: '',
             region: '',
             tipoDeVino: e.target[1].value,
@@ -188,9 +174,9 @@ const Home = () => {
             intensidadDelSabor: '',
             sabores: '',
             final: '',
-            conclusiones: e.target[4].value,
-            calificacion: e.target[5].value,
-            imagen: e.target[6].value,
+            conclusiones: e.target[5].value,
+            calificacion: e.target[6].value,
+            imagen: e.target[7].value,
             id: result
         }
 
@@ -198,8 +184,7 @@ const Home = () => {
             setOpinion(newItem)
             setVino(true);
             document.getElementById("miForm").reset();
-            document.getElementById("miFormAlert").classList.remove('hidenClass');
-            document.getElementById("miFormAlert").classList.add('showClass');
+            document.getElementById("miFormAlert").classList.add('form-button-dis');
             document.getElementById("miNotFormAlert").classList.remove('showClass');
             document.getElementById("miNotFormAlert").classList.add('hidenClass');
         }
@@ -207,8 +192,6 @@ const Home = () => {
             setVino(false);
             document.getElementById("miNotFormAlert").classList.remove('hidenClass');
             document.getElementById("miNotFormAlert").classList.add('showClass');
-            document.getElementById("miFormAlert").classList.remove('showClass');
-            document.getElementById("miFormAlert").classList.add('hidenClass');
         }
     }
 
@@ -222,15 +205,16 @@ const Home = () => {
         <div class="contenedorAll">
             {(user) ?
 
-                <div class="accordion accordion-flush accordionType" id="accordionFlushExample">
+                /*<div class="accordion accordion-flush accordionType" id="accordionFlushExample">
                     <div class="accordion-itemaccordionType-bar">
                         <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button collapsed accordionType-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                                 CARGAR VINO - BASICO
                             </button>
                         </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="cart-form">
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">*/
+                        <div class="accordionType">    
+                            <div class="cart-form-vino">
                                 <h5 class="logIn">Datos del Vino</h5>
                                 <form id="miForm" onSubmit={handleSubmitBasico}>
                                     <div class="row g-3 align-items-center">
@@ -295,6 +279,11 @@ const Home = () => {
                                             <input type="text" class="form-control"></input>
                                         </div>
 
+                                        <div class="col-12 col-md-8">
+                                            <label for="exampleInputPassword1" class="form-label">Bodega</label>
+                                            <input type="text" class="form-control"></input>
+                                        </div>
+
                                         <div class="col-12">
                                             <label for="exampleInputEmail1" class="form-label">CONCLUSIONES</label>
                                             <textarea type="textarea" class="form-control"></textarea>
@@ -311,17 +300,35 @@ const Home = () => {
                                         </div>
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-                                    <div id="miFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
-                                        Datos cargados con éxito
+
+                                    <div class="cart-form-vino-button">
+                                        <button id="miFormAlert" type="submit" class="mt-3 form-button">Cargar Vino</button>
+                                        {(vino) ?
+                                            (<Link to={{
+                                                pathname: `/colecciones`
+                                            }} onClick={() => {
+                                                const userRef = doc(db, 'usuarios', user);
+                                                arrayVinos.push(opinion)
+                                                updateDoc(userRef, {
+                                                    vinos: arrayVinos
+                                                })
+                                                console.log(user);
+                                            }}>
+                                                <button id="form-button-vino" class="mt-3 form-button" data-bs-dismiss="offcanvas"> Finalizar Carga </button>
+                                            </Link>)
+                                            :
+                                            (<button class="mt-3 form-button-dis"> Finalizar Carga </button>)
+                                        }
                                     </div>
+
                                     <div id="miNotFormAlert" class="alert alert-primary hidenClass mt-3" role="alert">
                                         Faltan datos por cargar
                                     </div>
                                 </form>
                             </div>
                         </div>
-
+                        /*</div>
+    
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed accordionType-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 CARGAR VINO - AVANZADO
@@ -594,44 +601,27 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/
                 :
                 <div class="cart-form">
                     <h5 class="logIn">Ingresar Usuario</h5>
                     <form id="miForm" onSubmit={submitLogIn}>
                         <div class="row g-3 align-items-center">
 
-                            <div class="col-12 col-md-4">
-                                <label for="exampleInputPassword1" class="form-label">Usuario:</label>
-                                <input type="text" class="form-control"></input>
+                            <div class="col-12 col-md-4 form-box">
+                                <img class="form-icon" src={Icon} alt="Icono de Usuario"/>
+                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <input type="text" class="form-icon-control" placeholder="Usuario"></input>
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                        <button type="submit" class="mt-3 form-button">Iniciar Sesión</button>
                         <div id="miLogInAlert" class="alert alert-primary hidenClass mt-3" role="alert">
                             No existe el usuario
                         </div>
                     </form>
                 </div>
             }
-            <div class="cart-checkOut">
-                {(vino) ?
-                    (<Link to={{
-                        pathname: `/colecciones`
-                    }} onClick={() => {
-                        const userRef = doc(db, 'usuarios', user);
-                        arrayVinos.push(opinion)
-                        updateDoc(userRef, {
-                            vinos: arrayVinos
-                        })
-                        console.log(user);
-                    }}>
-                        <button class="cart-checkOutTotalButton" data-bs-dismiss="offcanvas"> Cargar Vino </button>
-                    </Link>)
-                    :
-                    (<div> </div>)
-                }
-            </div>
         </div>
 
 

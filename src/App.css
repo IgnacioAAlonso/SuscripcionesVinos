@@ -13,15 +13,21 @@
   display: flex;
   justify-content: center;
 }
+
+.cotenedor__categorias a button{
+  color: #800020;
+  border: solid 2px #800020af;
+}
+
 .cotenedor__categorias button {
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  background: white;
+  background: #f7f2ec;
 }
 
 .cotenedor__categorias button:hover {
-  background: #e7e7e7;
+  background: #c0bdb9;
 }
 
 /* ------------ Inicio ---------- */
@@ -35,11 +41,10 @@
 .accordionType{
   width: 70%;
   margin: 10px auto;
-  background: black;
 }
 
 .accordionType-button{
-  background-color: #095375;
+  background-color: #394720;
   color: white;
 }
 
@@ -182,15 +187,13 @@ label{
 /* Informacion */
 
 .tituloDetalles{
-  color: white;
+  font-size: 60px;
   text-align: center;
-  font-size: 46px;
+  line-height: 1.2;
+  color: #FAEBD7;
+  font-weight: 500;
   text-transform: uppercase;
-  margin: 10% auto;
-  margin-bottom: 5%;
-  margin-top: 1%;
   border-bottom: solid 1px grey;
-  width: 40%;
 }
 
 .contenedorInfo {
@@ -338,7 +341,7 @@ label{
 }
 
 .contact-form form button:hover {
-  background: #063a52;
+  background: #1a3e4e;
   color: #c7c7c7;
 }
 
@@ -360,15 +363,29 @@ label{
 }
 
 
-
 /*---------- MOVILE -------*/
 @media screen and (max-width: 768px){
-  .logIn{
+  .accordionType{
+    width: 90%;
+  }
+
+  .cotenedor__categorias{
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tituloDetalles{
+    font-size: 1.6em;
+  }
+
+  /*.logIn{
     text-align: center;
   }
 
   .contenedorAll{
-    margin-top: 60px;
+    margin-top: 60%;
   }
 
   .cotenedor__categorias{
@@ -391,6 +408,5 @@ label{
   .accordionType {
     width: 80%;
     margin: 10px auto;
-    background: black;
-}
+}*/
 }
