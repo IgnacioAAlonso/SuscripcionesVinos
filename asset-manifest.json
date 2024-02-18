@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/SuscripcionesVinos/static/css/main.7eb925e0.chunk.css",
-    "main.js": "/SuscripcionesVinos/static/js/main.7dd0a950.chunk.js",
-    "main.js.map": "/SuscripcionesVinos/static/js/main.7dd0a950.chunk.js.map",
+    "main.css": "/SuscripcionesVinos/static/css/main.09140571.chunk.css",
+    "main.js": "/SuscripcionesVinos/static/js/main.888bcba3.chunk.js",
+    "main.js.map": "/SuscripcionesVinos/static/js/main.888bcba3.chunk.js.map",
     "runtime-main.js": "/SuscripcionesVinos/static/js/runtime-main.a7f28b95.js",
     "runtime-main.js.map": "/SuscripcionesVinos/static/js/runtime-main.a7f28b95.js.map",
-    "static/js/2.273e5cd0.chunk.js": "/SuscripcionesVinos/static/js/2.273e5cd0.chunk.js",
-    "static/js/2.273e5cd0.chunk.js.map": "/SuscripcionesVinos/static/js/2.273e5cd0.chunk.js.map",
+    "static/js/2.fda46d7d.chunk.js": "/SuscripcionesVinos/static/js/2.fda46d7d.chunk.js",
+    "static/js/2.fda46d7d.chunk.js.map": "/SuscripcionesVinos/static/js/2.fda46d7d.chunk.js.map",
     "static/js/3.20055920.chunk.js": "/SuscripcionesVinos/static/js/3.20055920.chunk.js",
     "static/js/3.20055920.chunk.js.map": "/SuscripcionesVinos/static/js/3.20055920.chunk.js.map",
     "index.html": "/SuscripcionesVinos/index.html",
-    "static/css/main.7eb925e0.chunk.css.map": "/SuscripcionesVinos/static/css/main.7eb925e0.chunk.css.map",
-    "static/js/2.273e5cd0.chunk.js.LICENSE.txt": "/SuscripcionesVinos/static/js/2.273e5cd0.chunk.js.LICENSE.txt"
+    "static/css/main.09140571.chunk.css.map": "/SuscripcionesVinos/static/css/main.09140571.chunk.css.map",
+    "static/js/2.fda46d7d.chunk.js.LICENSE.txt": "/SuscripcionesVinos/static/js/2.fda46d7d.chunk.js.LICENSE.txt",
+    "static/media/user-icon.2950b93e.png": "/SuscripcionesVinos/static/media/user-icon.2950b93e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a7f28b95.js",
-    "static/js/2.273e5cd0.chunk.js",
-    "static/css/main.7eb925e0.chunk.css",
-    "static/js/main.7dd0a950.chunk.js"
+    "static/js/2.fda46d7d.chunk.js",
+    "static/css/main.09140571.chunk.css",
+    "static/js/main.888bcba3.chunk.js"
   ]
 }
